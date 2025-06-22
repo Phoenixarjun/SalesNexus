@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: SalesNexus
+Version: 0.0.0
+Summary: A Python package for SalesNexus, a sales prediction and analysis tool.
+Home-page: https://github.com/Phoenixarjun/SalesNexus
+Author: NARESH B A
+Author-email: phoenixarjun007@gmail.com
+Project-URL: Bug Tracker, https://github.com/Phoenixarjun/SalesNexus/issues
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-python
+Dynamic: summary
+
+# SalesNexus-

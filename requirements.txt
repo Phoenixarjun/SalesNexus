@@ -1,0 +1,35 @@
+# Python / ML Service
+
+torch                      # Main deep learning framework
+torchvision                # For any data utilities if needed
+torchaudio                 # Optional, if needed for audio/time-series
+pandas                     # Data wrangling
+numpy                      # Numerical computation
+matplotlib                # Visualization
+seaborn                   # Advanced plotting
+scikit-learn              # Baseline ML utilities
+xgboost                   # Model of choice for forecasting
+statsmodels               # Time-series statistical modeling
+scipy                     # Scientific computing
+tqdm                      # Progress bars
+joblib                     # Model serialization
+gdown                      # Kaggle/download utilities
+dvc                       # Data versioning
+mlflow==2.2.2             # Model lifecycle and experiment tracking
+dagshub                   # Integrate MLflow/DVC
+pyyaml                    # Configuration files
+ensure==1.0.2              # Validation
+types-PyYAML              # Type hinting for PyYAML
+
+
+
+# Backend Framework for APIs
+
+fastapi                      # REST APIs for serving ML
+uvicorn                      # ASGI server for fastapi
+
+# Additional Tools
+
+notebook                  # For EDA and experimentation
+
+-e .
