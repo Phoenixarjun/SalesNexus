@@ -1,0 +1,22 @@
+artifacts_root: artifacts
+
+data_acquisition:
+  root_dir: artifacts/data_acquisition
+  source: "https://www.kaggle.com/datasets/competitions/store-sales-time-series-forecasting"
+  dataset_name: "store-sales-time-series-forecasting"
+  local_dir: artifacts/data_acquisition/raw_data
+
+
+
+data_preparation:
+  root_dir: artifacts/data_preparation
+  raw_dir: artifacts/data_acquisition/raw_data
+  processed_dir: artifacts/data_preparation/processed_data
+
+features:
+  root_dir: artifacts/features
+  feature_file: artifacts/features/features.csv
+
+model:
+  root_dir: artifacts/model
+  model_file: artifacts/model/sales_model.pth

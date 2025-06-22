@@ -20,7 +20,7 @@ dagshub                   # Integrate MLflow/DVC
 pyyaml                    # Configuration files
 ensure==1.0.2              # Validation
 types-PyYAML              # Type hinting for PyYAML
-
+opendatasets              # Download datasets from Kaggle and other sources
 
 
 # Backend Framework for APIs
