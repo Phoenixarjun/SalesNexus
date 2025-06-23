@@ -4,14 +4,22 @@ data_acquisition:
   root_dir: artifacts/data_acquisition
   source: "https://www.kaggle.com/datasets/competitions/store-sales-time-series-forecasting"
   dataset_name: "store-sales-time-series-forecasting"
-  local_dir: artifacts/data_acquisition/raw_data
+  local_dir: artifacts/data_acquisition
+  data_files:
+    train: "train.csv"
+    test: "test.csv"
+    stores: "stores.csv"
+    oil: "oil.csv"
+    holidays_events: "holidays_events.csv"
+    transactions: "transactions.csv"
+    sample_submission: "sample_submission.csv"
 
 
 
-data_preparation:
-  root_dir: artifacts/data_preparation
-  raw_dir: artifacts/data_acquisition/raw_data
-  processed_dir: artifacts/data_preparation/processed_data
+  data_preprocessing:
+    root_dir: artifacts/data_acquisition
+    train_file: "train_merged.csv"
+    test_file: "test_merged.csv"
 
 features:
   root_dir: artifacts/features

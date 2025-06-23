@@ -1,20 +1,24 @@
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Dict
 
 @dataclass(frozen=True)
 class DataAcquisitionConfig:
-    """Config for downloading the raw data from Kaggle using opendatasets."""
+    """Config for downloading and accessing raw data files."""
     root_dir: Path
-    source: str           
-    dataset_name: str     
+    source: str          
+    dataset_name: str    
     local_dir: Path       
+    data_files: Dict[str, str]  
+
+
 
 @dataclass(frozen=True)
-class DataPreparationConfig:
-    """Config for data cleaning and preparation."""
+class DataPreprocessingConfig:
+    """Config for preprocessing data."""
     root_dir: Path
-    raw_dir: Path
-    processed_dir: Path
+    train_file: Path
+    test_file: Path
 
 @dataclass(frozen=True)
 class FeatureEngineeringConfig:

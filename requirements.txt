@@ -21,6 +21,7 @@ pyyaml                    # Configuration files
 ensure==1.0.2              # Validation
 types-PyYAML              # Type hinting for PyYAML
 opendatasets              # Download datasets from Kaggle and other sources
+dotenv                    # Environment variable management
 
 
 # Backend Framework for APIs

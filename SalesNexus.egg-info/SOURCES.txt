@@ -6,6 +6,7 @@ SalesNexus.egg-info/SOURCES.txt
 SalesNexus.egg-info/dependency_links.txt
 SalesNexus.egg-info/top_level.txt
 ml_service/__init__.py
+ml_service/logging.py
 ml_service/components/__init__.py
 ml_service/components/data_loader.py
 ml_service/components/feature_engineering.py
@@ -15,10 +16,8 @@ ml_service/config/configuration.py
 ml_service/constants/__init__.py
 ml_service/constants/application.py
 ml_service/entity/__init__.py
-ml_service/entity/artifacts_entity.py
 ml_service/entity/config_entity.py
 ml_service/exception/__init__.py
-ml_service/logger/__init__.py
 ml_service/pipeline/__init__.py
 ml_service/pipeline/training_pipeline.py
 ml_service/utils/__init__.py
