@@ -9,6 +9,7 @@ ml_service/__init__.py
 ml_service/logging.py
 ml_service/components/__init__.py
 ml_service/components/data_loader.py
+ml_service/components/data_processing.py
 ml_service/components/feature_engineering.py
 ml_service/components/model_training.py
 ml_service/config/__init__.py
@@ -18,6 +19,9 @@ ml_service/constants/application.py
 ml_service/entity/__init__.py
 ml_service/entity/config_entity.py
 ml_service/exception/__init__.py
+ml_service/pipeline/01_data_acquisition.py
+ml_service/pipeline/02_data_preprocessing.py
+ml_service/pipeline/03_featureEngineering_and_dataTransformation.py
 ml_service/pipeline/__init__.py
 ml_service/pipeline/training_pipeline.py
 ml_service/utils/__init__.py

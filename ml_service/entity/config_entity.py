@@ -21,13 +21,26 @@ class DataPreprocessingConfig:
     test_file: Path
 
 @dataclass(frozen=True)
-class FeatureEngineeringConfig:
-    """Config for extracting and storing features."""
+class FeatureEngineeringAndDataTransformationConfig:
     root_dir: Path
-    feature_file: Path
+    input_train_file: str
+    input_test_file: str
+    train_file: str
+    test_file: str
+    scaler_file: str
 
 @dataclass(frozen=True)
 class ModelTrainingConfig:
     """Config for model training and saving the final artifact."""
     root_dir: Path
     model_file: Path
+
+
+@dataclass(frozen=True)
+class ModelBuildingAndEvaluationConfig:
+    path_of_model: Path
+    input_train_file: Path
+    input_test_file: Path
+    metrics_file: Path
+    all_params: dict
+    mlflow_uri: str

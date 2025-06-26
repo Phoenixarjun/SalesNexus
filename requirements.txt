@@ -1,14 +1,15 @@
 # Python / ML Service
 
-torch                      # Main deep learning framework
-torchvision                # For any data utilities if needed
-torchaudio                 # Optional, if needed for audio/time-series
 pandas                     # Data wrangling
 numpy                      # Numerical computation
 matplotlib                # Visualization
 seaborn                   # Advanced plotting
+plotly                    # Interactive visualizations
+graphviz                 # Graph visualization
+dash                     # Web-based data visualization
 scikit-learn              # Baseline ML utilities
 xgboost                   # Model of choice for forecasting
+catboost                  # Gradient boosting for categorical features
 statsmodels               # Time-series statistical modeling
 scipy                     # Scientific computing
 tqdm                      # Progress bars

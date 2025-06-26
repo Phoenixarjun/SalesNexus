@@ -1,0 +1,25 @@
+# ===================================================
+# XGBoost Model Parameters
+# ===================================================
+MODEL_TYPE: "XGBoost"
+RANDOM_STATE: 42
+N_ESTIMATORS: 1500
+LEARNING_RATE: 0.01
+MAX_DEPTH: 10
+SUBSAMPLE: 1
+COLSAMPLE_BY_TREE: 0.8
+OBJECTIVE: "reg:squarederror"
+
+# ===================================================
+# Training Parameters
+# ===================================================
+N_FOLDS: 3
+METRIC: "RMSLE"
+
+
+
+# ===================================================
+# Misc
+# ===================================================
+LOG_EXPERIMENTS: True
+TRACKING_SERVER: "https://dagshub.com/phoenixarjun007/SalesNexus.mlflow"
