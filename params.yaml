@@ -3,12 +3,16 @@
 # ===================================================
 MODEL_TYPE: "XGBoost"
 RANDOM_STATE: 42
-N_ESTIMATORS: 1500
-LEARNING_RATE: 0.01
-MAX_DEPTH: 10
-SUBSAMPLE: 1
-COLSAMPLE_BY_TREE: 0.8
+N_ESTIMATORS: 500
+LEARNING_RATE: 0.05
+MAX_DEPTH: 7
+SUBSAMPLE: 0.8
+COLSAMPLE_BY_TREE: 0.6
+REG_ALPHA: 0.1
+REG_LAMBDA: 2
+GAMMA: 0
 OBJECTIVE: "reg:squarederror"
+
 
 # ===================================================
 # Training Parameters

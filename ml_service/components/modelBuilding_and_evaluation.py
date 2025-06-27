@@ -28,7 +28,7 @@ class ModelBuildingAndEvaluation:
 
         # Ensure 'date' is datetime
         train_df["date"] = pd.to_datetime(train_df["date"])
-        # train_df = train_df.sample(n=250000, random_state=42).reset_index(drop=True)
+        # train_df = train_df.sample(n=50000, random_state=42).reset_index(drop=True)
 
         # Split into training and validation
         train_split = train_df[train_df["date"].dt.year <= 2016].reset_index(drop=True)
@@ -81,7 +81,10 @@ class ModelBuildingAndEvaluation:
             "MAX_DEPTH": self.config.all_params["MAX_DEPTH"],
             "SUBSAMPLE": self.config.all_params["SUBSAMPLE"],
             "COLSAMPLE_BY_TREE": self.config.all_params["COLSAMPLE_BY_TREE"],
-            "OBJECTIVE": self.config.all_params["OBJECTIVE"],
+            "REG_ALPHA": self.config.all_params["REG_ALPHA"],
+            "REG_LAMBDA": self.config.all_params["REG_LAMBDA"],
+            "GAMMA": self.config.all_params["GAMMA"],
+            "OBJECTIVE": self.config.all_params["OBJECTIVE"]
         }
 
         with mlflow.start_run():
@@ -90,7 +93,7 @@ class ModelBuildingAndEvaluation:
 
             if tracking_url_type_store != "file":
                 mlflow.sklearn.log_model(self.model, "model",
-                                        registered_model_name="SalesNexus_XGBoost_Model")
+                                          registered_model_name="SalesNexus_XGBoost_Model")
             else:
                 mlflow.sklearn.log_model(self.model, "model")
 

@@ -1,0 +1,148 @@
+schema: '2.0'
+stages:
+  data_acquisition:
+    cmd: python ml_service/pipeline/stage_01_data_acquisition.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: bc7520c8b0f82f62c8c1e32c1c81e432
+      size: 1467
+    - path: ml_service/pipeline/stage_01_data_acquisition.py
+      hash: md5
+      md5: 54ba686c442af611cce8d28b55ee07bd
+      size: 1243
+    outs:
+    - path: artifacts/data_acquisition/holidays_events.csv
+      hash: md5
+      md5: 6a71fe2fb783e8e6758a53d417b75872
+      size: 22309
+    - path: artifacts/data_acquisition/oil.csv
+      hash: md5
+      md5: 4767ef51a4ff57e65538afa9b1c5e1b5
+      size: 20580
+    - path: artifacts/data_acquisition/sample_submission.csv
+      hash: md5
+      md5: 28b7578c90501ff04c3467e76c2b2e3c
+      size: 342153
+    - path: artifacts/data_acquisition/stores.csv
+      hash: md5
+      md5: 8414fbafbc7dcb33498d1a3c0cf2fda6
+      size: 1387
+    - path: artifacts/data_acquisition/test.csv
+      hash: md5
+      md5: c83f62c8bce75a3cb0a246b01fe29256
+      size: 1022269
+    - path: artifacts/data_acquisition/train.csv
+      hash: md5
+      md5: b84434bf8eede5345ec04e41dfe9d86e
+      size: 121800373
+    - path: artifacts/data_acquisition/transactions.csv
+      hash: md5
+      md5: db5fa89caf46386aba0ed5bad7a403c7
+      size: 1552637
+  data_preprocessing:
+    cmd: python ml_service/pipeline/stage_02_data_preprocessing.py
+    deps:
+    - path: artifacts/data_acquisition/holidays_events.csv
+      hash: md5
+      md5: 6a71fe2fb783e8e6758a53d417b75872
+      size: 22309
+    - path: artifacts/data_acquisition/oil.csv
+      hash: md5
+      md5: 4767ef51a4ff57e65538afa9b1c5e1b5
+      size: 20580
+    - path: artifacts/data_acquisition/stores.csv
+      hash: md5
+      md5: 8414fbafbc7dcb33498d1a3c0cf2fda6
+      size: 1387
+    - path: artifacts/data_acquisition/test.csv
+      hash: md5
+      md5: c83f62c8bce75a3cb0a246b01fe29256
+      size: 1022269
+    - path: artifacts/data_acquisition/train.csv
+      hash: md5
+      md5: b84434bf8eede5345ec04e41dfe9d86e
+      size: 121800373
+    - path: artifacts/data_acquisition/transactions.csv
+      hash: md5
+      md5: db5fa89caf46386aba0ed5bad7a403c7
+      size: 1552637
+    - path: config/config.yaml
+      hash: md5
+      md5: bc7520c8b0f82f62c8c1e32c1c81e432
+      size: 1467
+    - path: ml_service/pipeline/stage_02_data_preprocessing.py
+      hash: md5
+      md5: ae36d27ad397305c9ac90f8a67709aff
+      size: 1615
+    outs:
+    - path: artifacts/data_preprocessing/test_merged.csv
+      hash: md5
+      md5: 0cbfad57c51f95ee80e4ef6fadee9454
+      size: 2008401
+    - path: artifacts/data_preprocessing/train_merged.csv
+      hash: md5
+      md5: db0b611cd92c460eda386317690c6b0a
+      size: 245561466
+  features_dataTransformation:
+    cmd: python 
+      ml_service/pipeline/stage_03_featureEngineering_and_dataTransformation.py
+    deps:
+    - path: artifacts/data_preprocessing/test_merged.csv
+      hash: md5
+      md5: 0cbfad57c51f95ee80e4ef6fadee9454
+      size: 2008401
+    - path: artifacts/data_preprocessing/train_merged.csv
+      hash: md5
+      md5: db0b611cd92c460eda386317690c6b0a
+      size: 245561466
+    - path: config/config.yaml
+      hash: md5
+      md5: bc7520c8b0f82f62c8c1e32c1c81e432
+      size: 1467
+    - path: 
+        ml_service/pipeline/stage_03_featureEngineering_and_dataTransformation.py
+      hash: md5
+      md5: b76c46cbf30beba5ead7abe056fc971d
+      size: 1376
+    outs:
+    - path: artifacts/features_dataTransformation/scaler.joblib
+      hash: md5
+      md5: 6476d84f277675608ce6e7f795f58ce5
+      size: 1087
+    - path: artifacts/features_dataTransformation/test_final.csv
+      hash: md5
+      md5: cbcc5aa2d11d83bf6ec2163b193636ad
+      size: 8860229
+    - path: artifacts/features_dataTransformation/train_final.csv
+      hash: md5
+      md5: cdf9b28d1231f550f6f8c04b8424f10c
+      size: 960986534
+  model_building_and_evaluation:
+    cmd: python ml_service/pipeline/stage_04_modelBuilding_and_training.py
+    deps:
+    - path: artifacts/features_dataTransformation/test_final.csv
+      hash: md5
+      md5: cbcc5aa2d11d83bf6ec2163b193636ad
+      size: 8860229
+    - path: artifacts/features_dataTransformation/train_final.csv
+      hash: md5
+      md5: cdf9b28d1231f550f6f8c04b8424f10c
+      size: 960986534
+    - path: config/config.yaml
+      hash: md5
+      md5: bc7520c8b0f82f62c8c1e32c1c81e432
+      size: 1467
+    - path: ml_service/pipeline/stage_04_modelBuilding_and_training.py
+      hash: md5
+      md5: b7d1eb52ede01de6cfe4f8dd627eb032
+      size: 1669
+    outs:
+    - path: artifacts/model/model.joblib
+      hash: md5
+      md5: 250d4a3e675937c5fa889118e95f00c2
+      size: 4504318
+    - path: evaluation_metrics.json
+      hash: md5
+      md5: 94834c816d2f7f6e227858263c7e809d
+      size: 101

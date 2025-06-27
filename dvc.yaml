@@ -1,0 +1,55 @@
+stages:
+  data_acquisition:
+    cmd: python ml_service/pipeline/stage_01_data_acquisition.py
+    deps:
+      - ml_service/pipeline/stage_01_data_acquisition.py
+      - config/config.yaml
+    outs:
+      - artifacts/data_acquisition/train.csv
+      - artifacts/data_acquisition/test.csv
+      - artifacts/data_acquisition/stores.csv
+      - artifacts/data_acquisition/oil.csv
+      - artifacts/data_acquisition/holidays_events.csv
+      - artifacts/data_acquisition/transactions.csv
+      - artifacts/data_acquisition/sample_submission.csv
+
+  data_preprocessing:
+    cmd: python ml_service/pipeline/stage_02_data_preprocessing.py
+    deps:
+      - ml_service/pipeline/stage_02_data_preprocessing.py
+      - config/config.yaml
+      - artifacts/data_acquisition/train.csv
+      - artifacts/data_acquisition/test.csv
+      - artifacts/data_acquisition/stores.csv
+      - artifacts/data_acquisition/oil.csv
+      - artifacts/data_acquisition/holidays_events.csv
+      - artifacts/data_acquisition/transactions.csv
+    outs:
+      - artifacts/data_preprocessing/train_merged.csv
+      - artifacts/data_preprocessing/test_merged.csv
+
+  features_dataTransformation:
+    cmd: python ml_service/pipeline/stage_03_featureEngineering_and_dataTransformation.py
+    deps:
+      - ml_service/pipeline/stage_03_featureEngineering_and_dataTransformation.py
+      - config/config.yaml
+      - artifacts/data_preprocessing/train_merged.csv
+      - artifacts/data_preprocessing/test_merged.csv
+    outs:
+      - artifacts/features_dataTransformation/train_final.csv
+      - artifacts/features_dataTransformation/test_final.csv
+      - artifacts/features_dataTransformation/scaler.joblib
+
+
+  model_building_and_evaluation:
+    cmd: python ml_service/pipeline/stage_04_modelBuilding_and_training.py
+    deps:
+      - ml_service/pipeline/stage_04_modelBuilding_and_training.py
+      - config/config.yaml
+      - artifacts/features_dataTransformation/train_final.csv
+      - artifacts/features_dataTransformation/test_final.csv
+    outs:
+      - artifacts/model/model.joblib
+    metrics:
+      - evaluation_metrics.json:
+          cache: false
