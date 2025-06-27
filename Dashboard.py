@@ -3,7 +3,6 @@ from dash import dcc, html, Input, Output, callback
 import plotly.express as px
 import pandas as pd
 from datetime import datetime as dt
-import os
 import numpy as np
 
 try:
